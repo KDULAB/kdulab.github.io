@@ -111,18 +111,16 @@
                     alert('금액을 입력하세요!');
                     return;
                 }else{
+                    Kakao.init('0c7c75757711bb374b165bd84c902168');
                     Kakao.Link.createCustomButton({
+                        container: '#send',
+                        templateId: 85378,
                         templateArgs: {
                             'count': i
                         }
                     });
                     document.querySelector('#send').click();
                 }
-            });
-            Kakao.init('0c7c75757711bb374b165bd84c902168');
-            Kakao.Link.createCustomButton({
-                container: '#send',
-                templateId: 85378
             });
         </script>
     </div>
