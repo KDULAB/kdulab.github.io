@@ -106,7 +106,7 @@
         <script>
             let i = 0;
             document.querySelector('#btn').addEventListener('click', function(){
-                i = str(Number(document.querySelector('#money').value).toLocaleString('ko-KR'));
+                i = String(Number(document.querySelector('#money').value).toLocaleString('ko-KR'));
                 if(document.querySelector('#money').value == "") {
                     alert('금액을 입력하세요!');
                     return;
