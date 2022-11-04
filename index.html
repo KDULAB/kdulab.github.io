@@ -81,21 +81,40 @@
             opacity: 1;
             transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
         }
+
+        input {
+            width: 200px;
+            height: 48px;
+            font-size: 15px;
+            border: 0;
+            outline: none;
+            padding-left: 10px;
+            margin-left: 10px;
+            margin-top: 1px;
+            background-color: rgb(233, 233, 233);
+            vertical-align: top;
+        }
     </style>
 </head>
 <body>
     <div class="div1">
-        <button id="send" class="button-57" role="button"><span class="text">낚시하러 가기</span><span>고고!</span></button>
+        <input id="money" type="text" placeholder="금액을 입력하세요.">
+        <button id="btn" class="button-57" role="button"><span class="text">낚시하러 가기</span><span>고고!</span></button>
+        <button id="send" hidden="true"></button>
+        <span style="color: #fff;">제작자 : <span style="font-weight: bolder;">KDU</span></span>
         <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
         <script>
             let i = 0;
-            document.querySelector('#send').addEventListener('click', function(){
-                i = 1,000,000;
+            document.querySelector('#btn').addEventListener('click', function(){
+                i = Number(document.querySelector('#money').value).toLocaleString('ko-KR');
+                if(document.querySelector('#money').value == "") {
+                    alert('금액을 입력하세요!');
+                    return;
+                }else{
+                    document.querySelector('#send').click();
+                }
             });
-            
             Kakao.init('0c7c75757711bb374b165bd84c902168');
-
-            //카카오링크 코드
             Kakao.Link.createCustomButton({
                 container: '#send',
                 templateId: 85378,
