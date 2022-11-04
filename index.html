@@ -115,6 +115,9 @@
     </div>
         <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
         <script>
+            var ref = document.referrer;
+            console.log(ref);
+
             let i = 0;
             document.querySelector('#btn').addEventListener('click', function(){
                 i = Number(document.querySelector('#money').value).toLocaleString('ko-KR');
