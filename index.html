@@ -106,21 +106,23 @@
         <script>
             let i = 0;
             document.querySelector('#btn').addEventListener('click', function(){
-                i = String(Number(document.querySelector('#money').value).toLocaleString('ko-KR'));
+                i = Number(document.querySelector('#money').value).toLocaleString('ko-KR');
                 if(document.querySelector('#money').value == "") {
                     alert('금액을 입력하세요!');
                     return;
                 }else{
+                    Kakao.Link.createCustomButton({
+                        templateArgs: {
+                            'count': i
+                        }
+                    });
                     document.querySelector('#send').click();
                 }
             });
             Kakao.init('0c7c75757711bb374b165bd84c902168');
             Kakao.Link.createCustomButton({
                 container: '#send',
-                templateId: 85378,
-                templateArgs: {
-                    'count': i
-                }
+                templateId: 85378
             });
         </script>
     </div>
