@@ -118,7 +118,7 @@
             let i = 0;
             document.querySelector('#btn').addEventListener('click', function(){
                 let m = document.querySelector('#money').value;
-                m.replace("/[^0-9]/g", "");
+                m.replace(/[^0-9]/g, "");
                 i = Number(m).toLocaleString('ko-KR');
                 if(m == "") {
                     alert('금액을 입력하세요!');
